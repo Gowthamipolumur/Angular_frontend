@@ -1,0 +1,51 @@
+<!--
+<app-search></app-search>
+
+
+<ul>
+    <li *ngFor="let movie of movies">
+      <a>
+        <img [src]="movies.imageUrl" alt="{{movies.name}}">
+        <div class="content">
+          <div class="name">
+            {{movie.name}}
+          </div>
+        </div>
+  
+        <div class="product-item-footer">
+          <div class="genres">
+             Since genres is a string, remove the *ngFor 
+            {{movie.genres}}
+          </div>
+        </div>
+      </a>
+    </li>
+  </ul>  -->
+
+<app-search></app-search>
+
+<ul>
+  <li *ngFor="let movie of movies">
+    <a>
+      <img [src]="movie.imageUrl" alt="{{movie.name}}">
+      <div class="content">
+        <div class="name">
+          {{movie.name}}
+        </div>
+      </div>
+      <div class="product-item-footer">
+        <div class="genres">
+          {{movie.genres}}
+        </div>
+        <div class="movie-buttons">
+          <button (click)="goToDetails(movie)">Details</button>
+          <button (click)="bookNow(movie)">Book Now</button>
+        </div>
+      </div>
+    </a>
+  </li>
+</ul>
+
+  
+ 
+  

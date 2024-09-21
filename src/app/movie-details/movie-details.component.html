@@ -1,0 +1,141 @@
+
+<div *ngIf="movie">
+<img *ngIf="movie.imageUrl" [src]="movie.imageUrl" alt="{{ movie.name }} Poster">
+<div>
+  <h1>{{ movie.name }}</h1> 
+  <p *ngIf="movie.category"><strong>category:</strong> {{ movie.category }}</p>
+  <p><strong>Genre:</strong> {{ movie.genres }}</p> 
+ 
+  <p *ngIf="movie.cast"><strong>cast:</strong> {{ movie.cast }}</p>
+  <p *ngIf="movie.director"><strong>director:</strong> {{ movie.director }}</p>
+  <p *ngIf="movie.rating"><strong>rating:</strong> {{ movie.rating }}</p>
+  <p *ngIf="movie.description"><strong>Description:</strong> {{ movie.description }}</p>
+</div>
+
+ Embed YouTube trailer only if the trailerUrl exists 
+  <div *ngIf="movie.trailerUrl">
+    <iframe 
+        width="560" 
+        height="315" 
+        [src]="movie.trailerUrl ? (movie.trailerUrl | safeUrl) : ''"  
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen></iframe>
+   
+  </div>
+</div>
+
+
+
+<!--
+
+<div *ngIf="movie">
+  
+  <img *ngIf="movie.imageUrl" [src]="movie.imageUrl" alt="{{ movie.name || 'Movie Poster' }}">
+  
+
+  <div>
+      
+      <h1>{{ movie?.name || 'Unknown Movie' }}</h1>
+      <p *ngIf="movie?.category"><strong>Category:</strong> {{ movie?.category || 'N/A' }}</p>
+      <p *ngIf="movie?.genres"><strong>Genre:</strong> {{ movie?.genres || 'N/A' }}</p>
+      <p *ngIf="movie?.cast"><strong>Cast:</strong> {{ movie?.cast || 'N/A' }}</p>
+      <p *ngIf="movie?.director"><strong>Director:</strong> {{ movie?.director || 'N/A' }}</p>
+      <p *ngIf="movie?.rating"><strong>Rating:</strong> {{ movie?.rating || 'N/A' }}</p>
+      <p *ngIf="movie?.description"><strong>Description:</strong> {{ movie?.description || 'No description available.' }}</p>
+  </div>
+
+  
+  <div *ngIf="movie?.trailerUrl">
+      <iframe 
+          width="560" 
+          height="315" 
+          [src]="getSafeUrl(movie?.trailerUrl || '')" 
+          frameborder="0" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+          allowfullscreen>
+      </iframe>
+  </div>
+</div> -->
+
+<!--
+<div *ngIf="movie">
+   Movie Poster 
+  <div *ngIf="movie?.imageUrl">
+    <img 
+        [src]="getSafeUrl(movie?.imageUrl || '')" 
+        alt="{{ movie?.name || 'Movie Poster' }}" 
+        width="560" 
+        height="315"
+        style="border-radius: 8px;"
+    />
+  </div>
+
+  
+  <div>
+    <h1>{{ movie?.name }}</h1>
+    <p *ngIf="movie?.category"><strong>Category:</strong> {{ movie?.category }}</p>
+    <p *ngIf="movie?.genres"><strong>Genre:</strong> {{ movie?.genres }}</p>
+    <p *ngIf="movie?.cast"><strong>Cast:</strong> {{ movie?.cast }}</p>
+    <p *ngIf="movie?.director"><strong>Director:</strong> {{ movie?.director }}</p>
+    <p *ngIf="movie?.rating"><strong>Rating:</strong> {{ movie?.rating }}</p>
+    <p *ngIf="movie?.description"><strong>Description:</strong> {{ movie?.description }}</p>
+  </div>
+
+  Movie Trailer 
+  <div *ngIf="movie?.trailerUrl">
+    <iframe 
+        width="560" 
+        height="315" 
+        [src]="getSafeUrl(movie?.trailerUrl || '')" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen>
+    </iframe>
+  </div>
+</div> new -->
+
+<!--<div *ngIf="movie">
+  <img *ngIf="movie.imageUrl" [src]="movie.imageUrl" alt="{{ movie.name || 'Movie Poster' }}">
+  <h1>{{ movie.name }}</h1>
+  <p *ngIf="movie.category"><strong>Category:</strong> {{ movie.category }}</p>
+  <p><strong>Genre:</strong> {{ movie.genres }}</p>
+  <p *ngIf="movie.cast"><strong>Cast:</strong> {{ movie.cast }}</p>
+  <p *ngIf="movie.director"><strong>Director:</strong> {{ movie.director }}</p>
+  <p *ngIf="movie.rating"><strong>Rating:</strong> {{ movie.rating }}</p>
+  <p *ngIf="movie.description"><strong>Description:</strong> {{ movie.description }}</p>
+  <div *ngIf="movie.trailerUrl">
+    <iframe 
+      width="560" 
+      height="315" 
+      [src]="getSafeUrl(movie.trailerUrl)"
+      frameborder="0" 
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+      allowfullscreen>
+    </iframe>
+  </div>
+</div>
+
+
+<div *ngIf="movie">
+  <img *ngIf="movie.imageUrl" [src]="movie.imageUrl" alt="{{ movie.name || 'Movie Poster' }}">
+  <h1>{{ movie.name }}</h1>
+  <p *ngIf="movie.category"><strong>Category:</strong> {{ movie.category }}</p>
+  <p><strong>Genre:</strong> {{ movie.genres }}</p>
+  <p *ngIf="movie.cast"><strong>Cast:</strong> {{ movie.cast }}</p>
+  <p *ngIf="movie.director"><strong>Director:</strong> {{ movie.director }}</p>
+  <p *ngIf="movie.rating"><strong>Rating:</strong> {{ movie.rating }}</p>
+  <p *ngIf="movie.description"><strong>Description:</strong> {{ movie.description }}</p>
+  <div *ngIf="movie.trailerUrl">
+    <iframe 
+      width="560" 
+      height="315" 
+      [src]="getSafeUrl(movie.trailerUrl)"
+      frameborder="0" 
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+      allowfullscreen>
+    </iframe>
+  </div>
+</div>
+-->
+
