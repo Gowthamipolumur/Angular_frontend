@@ -1,13 +1,57 @@
-
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 import { Movie } from '@shared/models/Movie';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MoviesService {
+  private apiUrl = 'http://localhost:8080/movie/all';  // Your API endpoint
+
+  constructor(private http: HttpClient) {}
+
+  getAll(): Observable<Movie[]> {
+    return this.http.get<Movie[]>(this.apiUrl);
+  }
+}
+
+
+
+/*import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { Movie } from '@shared/models/Movie';
+
+@Injectable({
+  providedIn: 'root',
+})
+export class MoviesService {
+  private apiUrl = 'http://localhost:8080/movie';  // Spring Boot API URL
+
+  constructor(private http: HttpClient) {}
+  getAll(): Observable<Movie[]> {
+    // Make sure you're returning an Observable from the HttpClient
+    return this.http.get<Movie[]>(this.apiUrl);
+  }
+  // Method to get a movie by ID
+  getById(id: number): Observable<Movie> {
+    return this.http.get<Movie>(`${this.apiUrl}/${id}`);
+  }
+}
+
+*/
+/*
+@Injectable({
+  providedIn: 'root'
+})
+
+
+///first code
+export class MoviesService {
 
   //constructor() { }
+
 
   //getAll(): Movie[] {
     private movies: Movie[] =
@@ -49,7 +93,7 @@ export class MoviesService {
         director: 'Sharan Sharma',
         rating: 'PG-13',
         description: 'Mahendra & Mahima, a couple who get together through an arranged marriage, share a common passion for Cricket. Mahendra who was once a failed local cricketer, discovers natural cricketing talent in Mahima and eventually starts coaching her to be a professional cricketer.',
-        trailerUrl: 'https://www.youtube.com/embed/TtMjcP9cHIA'   
+        trailerUrl: 'https://www.youtube.com/embed/TtMjcP9cHIA'
         },
       {
         id: 4,
@@ -61,7 +105,7 @@ export class MoviesService {
         director: 'Alejandro Brugués',
         rating: 'PG-15',
         description: 'On the eve of his 75th birthday, billionaire Charles Abernathy invites his estranged children back home out of fear that tonight someone or something is going to kill him. He puts each of their inheritances on the line, to ensure they will help keep him alive.',
-        trailerUrl: 'https://www.youtube.com/embed/ga3I1_dQEQU'    
+        trailerUrl: 'https://www.youtube.com/embed/ga3I1_dQEQU'
       },
       {
         id: 5,
@@ -112,7 +156,7 @@ export class MoviesService {
         name: 'We Live in Time',
         genres: 'Romance',
         imageUrl:'assets/movienames/comingsoonmovies/WELIVEINTIME.jpg',
-        category: 'Now Playing' ,
+        category: 'Coming Soon' ,
         cast: 'Ryan Gosling, Emily Blunt',
         director: 'David Leitch',
         rating: 'PG-13',
@@ -123,7 +167,7 @@ export class MoviesService {
         name: 'Rebel Ridge',
         genres: 'Action',
         imageUrl:'assets/movienames/comingsoonmovies/Rebelridge.jpg',
-        category: 'Now Playing' ,
+        category: 'Coming Soon' ,
         cast: 'Ryan Gosling, Emily Blunt',
         director: 'David Leitch',
         rating: 'PG-13',
@@ -134,7 +178,7 @@ export class MoviesService {
         name: 'Sector-36',
         genres: 'Thriller',
         imageUrl:'assets/movienames/comingsoonmovies/sector36.jpg',
-        category: 'Now Playing' ,
+        category: 'Coming Soon' ,
         cast: 'Ryan Gosling, Emily Blunt',
         director: 'David Leitch',
         rating: 'PG-13',
@@ -153,32 +197,4 @@ export class MoviesService {
   }
 }
 
-/*
-@Injectable({
-  providedIn: 'root'
-})
-export class MoviesService {
-
-  private movies: Movie[] = [
-    {
-      id: 1,
-      name: 'The Fall Guy',
-      genres: 'Action',
-      imageUrl: 'assets/movienames/nowplaying/fallguy.jpg',
-      description: 'A thrilling movie...',
-      trailerUrl: 'https://www.youtube.com/watch?v=j7jPnwVGdZ8'
-    },
-    // Other movie entries...
-  ];
-
-  constructor() {}
-
-  getAll(): Movie[] {
-    return this.movies;
-  }
-
-  getById(id: number): Movie | undefined {
-    return this.movies.find(movie => movie.id === id);
-  }
-}
 */

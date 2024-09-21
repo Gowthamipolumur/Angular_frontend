@@ -1,54 +1,57 @@
-/*ul{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap:wrap;
-    list-style-type:none;
-    padding: 0;
-}
-ul {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    overflow-y: scroll; /* This allows scrolling if the movies overflow the container 
-    height: 100vh; /* Set the height to occupy the full view 
-}
-  
 
-ul li a{
-    height: 25rem;
-    width: 25rem;
-    border: 1px solid whitesmoke;
-    border-radius: 1rem;
-    margin: 0.5rem;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    color: #e72929;
-
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
 }
 
-li a:hover{
-    opacity: 0.9;
-    cursor: pointer;
-} */
+/* Section styling for Now Playing and Coming Soon */
+.now-playing-section,
+.coming-soon-section {
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  width: 100%;
+  display: block;
+  vertical-align: top;
+}
 
-ul {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    list-style-type: none;
-    padding: 0;
-    width: 100%;
-  }
-  
-  ul li {
-    flex: 1 1 20%; /*Each movie takes up 20% of the available width */
-    margin: 10px;
-    text-align: center;
-  }
-  
-  ul li a {
+/* Heading for sections */
+h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #e95a5a;
+  text-align: center;
+  border-bottom: 2px solid #e72929;
+  padding-bottom: 5px;
+}
+
+/* Container for movie cards */
+.movie-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  /*gap: 20px;*/
+  list-style-type: none;
+  padding: 0;
+  width: 100%;
+}
+
+/* Individual movie card styling */
+.movie-card {
+  /*flex: 1 1 calc(25% - 30px); / 4 cards per row with some spacing /
+  max-width: calc(25% - 30px); / 4 cards per row with some spacing /
+  text-align: center;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 10px;
+  background-color: white;
+  transition: box-shadow 0.3s ease;*/
     display: block;
     width: 100%;
     height: auto;
@@ -57,108 +60,60 @@ ul {
     padding: 10px;
     background-color: #f9f9f9;
     transition: box-shadow 0.3s ease;
-  }
-  
-  ul li a:hover {
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-  }
-  
-  img {
-    max-width: 100%;
-    height: 500px;
-    border-radius: 10px;
-  }
-  
-  .name {
-    font-size: 18px;
-    font-weight: bold;
-    margin-top: 10px;
-    color: #333;
-  }
-  
-  .genres {
-    font-size: 14px;
-    color: #777;
-    margin-top: 5px;
-  } 
 
-  .movie-buttons {
-    margin-top: 10px;
-  }
-  
-  .movie-buttons button {
-    padding: 8px 15px;
-    margin-right: 10px;
-    border: none;
-    background-color: #e95a5a; /* You can change this color */
-    color: white;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .movie-buttons button:hover {
-    background-color: #e72929; /* Darker color on hover */
-  }
-  
-  .movie-buttons button:last-child {
-    margin-right: 0;
-  }
-  
-  
-  /*ul {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    list-style-type: none;
-    padding: 0;
-    width: 100%;
 }
 
-ul li {
-    flex-basis: 20%;  Set base width of each item 
-    flex-grow: 1;     /* Allow it to grow 
-    margin: 10px;
-    text-align: center;
-    max-width: 250px; /* Limit the max width 
+.movie-card:hover {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
-ul li a {
-    display: block;
-    width: 100%;
-    height: auto;
-    border: 1px solid #eee;
-    border-radius: 10px;
-    padding: 10px;
-    background-color: #f9f9f9;
-    transition: box-shadow 0.3s ease;
+/* Styling for movie poster */
+.movie-card img {
+  width: 100%;
+  height: 400px; /* Ensure uniform height for all images */
+  border-radius: 8px;
+  object-fit: cover; /* Fit image within the card */
 }
 
-ul li a:hover {
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+/* Movie name styling */
+.movie-card .name {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 10px;
+  color: #333;
 }
 
-img {
-    max-width: 100%;
-    height: 300px;     /* Fixed height for all images 
-    object-fit: cover; /* Ensure the image covers the space without distortion 
-    border-radius: 10px;
+/* Genre styling */
+.movie-card .genres {
+  font-size: 14px;
+  color: #777;
+  margin-top: 5px;
 }
 
-.name {
-    font-size: 18px;
-    font-weight: bold;
-    margin-top: 10px;
-    color: #333;
+/* Container for the action buttons */
+.movie-buttons {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between; /* Spread the buttons evenly */
+  gap: 10px;
 }
 
-.genres {
-    font-size: 14px;
-    color: #777;
-    margin-top: 5px;
+.movie-buttons button {
+  flex: 1;
+  padding: 8px 15px;
+  border: none;
+  background-color: #e95a5a;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
+.movie-buttons button:hover {
+  background-color: #e72929;
+}
 
+/* Styling for the list of movies */
 ul {
   display: flex;
   justify-content: space-between;
@@ -169,11 +124,9 @@ ul {
 }
 
 ul li {
-  flex-basis: 20%;
-  flex-grow: 1;
+  flex: 1 1 calc(25% - 30px); /* Ensure 4 movies per row with spacing */
   margin: 10px;
   text-align: center;
-  max-width: 250px; 
 }
 
 ul li a {
@@ -191,33 +144,63 @@ ul li a:hover {
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
-.image-container {
-  position: relative;
-  width: 100%;
-  padding-bottom: 75%; 
-  overflow: hidden;
+img {
+  max-width: 100%;
+  height: 300px; /* Restrict height to avoid stretching */
   border-radius: 10px;
+  object-fit: cover;
 }
 
-.image-container img {
-  position: absolute;
-  top: 0;
-  left: 0;
+/* For small screens, adjust layout */
+@media (max-width: 768px) {
+  .now-playing-section,
+  .coming-soon-section {
+    width: 100%; /* Sections take full width on smaller screens */
+    margin-bottom: 20px;
+  }
+
+  .movie-card {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+}
+.movie-list {
+  display: flex;
+  flex-wrap: wrap;
+  list-style-type: none;
+  padding: 0;
+  gap: 20px;
+}
+
+.movie-card {
+  border: 1px solid #ddd;
+  padding: 10px;
+  width: 200px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+.movie-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.movie-card p {
+  margin: 5px 0;
+}
+
+.movie-image {
   width: 100%;
-  height: 100%;
-  object-fit: cover; /Ensure the image covers the container 
+  height: auto;
+  margin-bottom: 10px;
 }
 
-.name {
-  font-size: 18px;
-  font-weight: bold;
+.movie-buttons {
   margin-top: 10px;
-  color: #333;
 }
 
-.genres {
-  font-size: 14px;
-  color: #777;
-  margin-top: 5px;
+.movie-buttons button {
+  margin-right: 10px;
 }
-*/
+

@@ -1,51 +1,45 @@
-<!--
 <app-search></app-search>
 
-
-<ul>
-    <li *ngFor="let movie of movies">
-      <a>
-        <img [src]="movies.imageUrl" alt="{{movies.name}}">
-        <div class="content">
-          <div class="name">
-            {{movie.name}}
-          </div>
-        </div>
-  
-        <div class="product-item-footer">
-          <div class="genres">
-             Since genres is a string, remove the *ngFor 
-            {{movie.genres}}
-          </div>
-        </div>
-      </a>
-    </li>
-  </ul>  -->
-
-<app-search></app-search>
-
-<ul>
-  <li *ngFor="let movie of movies">
-    <a>
-      <img [src]="movie.imageUrl" alt="{{movie.name}}">
-      <div class="content">
-        <div class="name">
-          {{movie.name}}
-        </div>
-      </div>
-      <div class="product-item-footer">
-        <div class="genres">
-          {{movie.genres}}
-        </div>
+<!-- Now Playing Movies Section -->
+<div class="now-playing-section">
+  <h2>Now Playing</h2>
+  <ul class="movie-list">
+    <ng-container *ngFor="let movie of nowPlayingMovies">
+      <li class="movie-card">
+        <img [src]="movie.imageUrl" alt="{{ movie.movieName }} Poster" class="movie-image">
+        <h3>{{ movie.movieName }}</h3>
+        <p><strong>Genres:</strong> {{ movie.genre }}</p>
+        <p><strong>Rating:</strong> {{ movie.rating }}</p>
+        <p><strong>Duration:</strong> {{ movie.duration }} minutes</p>
+        <p><strong>Release Date:</strong> {{ movie.releaseDate }}</p>
+        <p><strong>Cast:</strong> {{ movie.cast }}</p>
         <div class="movie-buttons">
           <button (click)="goToDetails(movie)">Details</button>
           <button (click)="bookNow(movie)">Book Now</button>
         </div>
-      </div>
-    </a>
-  </li>
-</ul>
+      </li>
+    </ng-container>
+  </ul>
+</div>
 
-  
- 
-  
+<!-- Coming Soon Movies Section -->
+<div class="coming-soon-section">
+  <h2>Coming Soon</h2>
+  <ul class="movie-list">
+    <ng-container *ngFor="let movie of comingSoonMovies">
+      <li class="movie-card">
+        <img [src]="movie.imageUrl" alt="{{ movie.movieName }} Poster" class="movie-image">
+        <h3>{{ movie.movieName }}</h3>
+        <p><strong>Genres:</strong> {{ movie.genre }}</p>
+        <p><strong>Rating:</strong> {{ movie.rating }}</p>
+        <p><strong>Duration:</strong> {{ movie.duration }} minutes</p>
+        <p><strong>Release Date:</strong> {{ movie.releaseDate }}</p>
+        <p><strong>Cast:</strong> {{ movie.cast }}</p>
+        <div class="movie-buttons">
+          <button (click)="goToDetails(movie)">Details</button>
+          <button (click)="bookNow(movie)">Book Now</button>
+        </div>
+      </li>
+    </ng-container>
+  </ul>
+</div>

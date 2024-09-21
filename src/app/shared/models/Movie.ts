@@ -1,21 +1,15 @@
-export class Movie{
-    id!: number;
-    name!: string;
-    genres!: string;
-    imageUrl!:string;
-    description?: string;  // Add description (optional field)
-    trailerUrl?: string; 
-    category?: string;
-    cast?: string;
-    director?: string;
-    rating?: string;
-
-    /*price!: number;
-    tags?: string[];
-    favorite: boolean = false;
-    stars: number =0;
-    origins!: string[];
-    cookTime!: string;*/
-
-     
+export interface Movie {
+  id: number;
+  movieName: string;  // Previously 'name', now 'movieName' as used in your template
+  genre: string;      // If this field should be 'genre' and not 'genres'
+  duration: number;
+  releaseDate: string;
+  rating: number;
+  description: string;
+  imageUrl: string;
+  trailerUrl: string;
+  cast: string;
+  director: string;
+  language: string;
+  category: string;
 }
